@@ -13,12 +13,23 @@ function difference(num1, num2) {
   return num1 - num2;
 }
 
+function product(num1, num2) {
+  if(num1 === undefined) { num1 = 0; }
+  
+  if(num2 === undefined) { num2 = 1; } 
+  
+  return num1 * num2;
+}
+
+
 function calc(Operation, num1, num2) {
   switch(Operation)
   {
     case 'add': return sum(num1, num2);
 
     case 'diff': return difference(num1, num2);
+
+    case 'mul': return product(num1, num2);
 
     default:  return 'operation not supported';
   }
@@ -47,6 +58,8 @@ try {
   // Test Case 3
   // --------------------------------------------------
   // It should return the correct product when the user provides: 'multiply', 9, 9.
+    var result = calc('mul', 9, 9);
+    if (result !== 81) throw new Error('Expected calc("diff", 9, 9) to be 81. Received: ' + result);
 
   // --------------------------------------------------
   // Test Case 4
@@ -57,9 +70,9 @@ try {
   // Test Case 5
   // --------------------------------------------------
   // It should return the message 'Operation not supported.' when the user provides: exponent, 2, 8.
-  var result = calc('exponent', 2, 8);
-  if (result !== 'operation not supported') throw new Error('Expected calc("exponent", 2, 8) to be operation not supported. Received: ' + result);
-  console.log('All tests passed successfully.');
+    var result = calc('exponent', 2, 8);
+    if (result !== 'operation not supported') throw new Error('Expected calc("exponent", 2, 8) to be operation not supported. Received: ' + result);
+    console.log('All tests passed successfully.');
 
 // ==================================================
 // PRINT ERRORS
