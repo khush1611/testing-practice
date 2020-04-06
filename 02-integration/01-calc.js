@@ -15,12 +15,15 @@ function difference(num1, num2) {
 
 function product(num1, num2) {
   if(num1 === undefined) { num1 = 0; }
-  
   if(num2 === undefined) { num2 = 1; } 
-  
   return num1 * num2;
 }
 
+function quotient(num1, num2) {
+  if(num1 === undefined) { num1 = 0; }
+  if(num2 === undefined) { num2 = 1; }
+  return num1 /  num2;
+}
 
 function calc(Operation, num1, num2) {
   switch(Operation)
@@ -30,6 +33,8 @@ function calc(Operation, num1, num2) {
     case 'diff': return difference(num1, num2);
 
     case 'mul': return product(num1, num2);
+
+    case 'divi': return quotient(num1, num2);
 
     default:  return 'operation not supported';
   }
@@ -65,7 +70,8 @@ try {
   // Test Case 4
   // --------------------------------------------------
   // It should return the correct quotient when the user provides: 'divide', 9, 3.
-
+    var result = calc('divi', 9, 3);
+    if (result !== 3) throw new Error('Expected calc("diff", 9, 3) to be 3. Received: ' + result);
   // --------------------------------------------------
   // Test Case 5
   // --------------------------------------------------
