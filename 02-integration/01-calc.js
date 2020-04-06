@@ -7,10 +7,18 @@ function sum(num1, num2) {
   return num1 + num2;
 }
 
+function difference(num1, num2) {
+  if(num1 === undefined) { num1=0; }
+  if(num2 === undefined) { num2=0; }
+  return num1 - num2;
+}
+
 function calc(Operation, num1, num2) {
   switch(Operation)
   {
     case 'add': return sum(num1, num2);
+
+    case 'diff': return difference(num1, num2);
 
     default:  return 'operation not supported';
   }
@@ -25,13 +33,15 @@ try {
   // Test Case 1
   // --------------------------------------------------
   // It should return the correct sum when the user provides: 'add', 1, 1.
-  var result = calc('add', 1, 1);
-  if (result !== 2) throw new Error('Expected calc("add", 1, 1) to be 2. Received: ' + result);
+    var result = calc('add', 1, 1);
+    if (result !== 2) throw new Error('Expected calc("add", 1, 1) to be 2. Received: ' + result);
 
   // --------------------------------------------------
   // Test Case 2
   // --------------------------------------------------
   // It should return the correct difference when the user provides: 'subtract', 20, 10.
+    var result = calc('diff', 20, 10);
+    if (result !== 10) throw new Error('Expected calc("diff", 20, 10) to be 10. Received: ' + result);
 
   // --------------------------------------------------
   // Test Case 3
